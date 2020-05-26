@@ -17,6 +17,7 @@ app.use(async(ctx)=>{
         ctx.body=html
     }else if(ctx.url==='/' && ctx.method==='POST'){
         let postData=await parsePostData(ctx);
+        
         ctx.body=postData
        
     }else{
@@ -28,7 +29,7 @@ function parsePostData(ctx){
     return new Promise((resolve,reject)=>{
         try{
             let postdata="";
-            console.log(ctx.body)
+           
             ctx.req.addListener('data',(data)=>{
                
                 postdata+=data;
